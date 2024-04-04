@@ -7,6 +7,11 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Pompier"%>
 <%@page import="model.Caserne"%>
+<%@page import="model.Vehicule"%>
+<%@page import="model.Grade"%>
+<%@page import="model.Fonction"%>
+
+
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -53,7 +58,18 @@
                             out.println("<td>");
                             out.println(p.getUneCaserne().getNom());
                             out.println("</td>");
-                               
+                            
+                            out.println("<td>");
+                            out.println(p.getUnGrade().getNom()):
+                            out.println("")
+                            
+                            out.println("<td>");
+                            out.println(p.getUnVehicule().getNom()):
+                            out.println("")
+                            
+                            out.println("<td>");
+                            out.println(p.getUnVehicule().getUneFonction()):
+                            out.println("")
                         }
                     %>
                 </tr>
