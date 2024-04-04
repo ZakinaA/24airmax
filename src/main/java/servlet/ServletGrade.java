@@ -18,6 +18,7 @@ import java.sql.Connection;
 import java.util.ArrayList;
 import model.Caserne;
 import model.Pompier;
+import model.Grade;
 
 /**
  *
