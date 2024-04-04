@@ -37,7 +37,7 @@ public class Grade {
         this.libelle = libelle;
     }
     
-    public int getSurgrade() {
+    public String getSurgrade() {
         return surgrade;
     }
 
