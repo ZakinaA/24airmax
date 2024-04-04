@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author zakina
@@ -15,6 +18,7 @@ public class Pompier {
     private String nom;
     private String prenom ;
     private Caserne uneCaserne ;
+    private Set<Fonction> fonction = new HashSet<>();
 
     public Pompier() {
     }
@@ -29,6 +33,14 @@ public class Pompier {
 
     public String getBip() {
         return bip;
+    }
+    
+    public Set<Fonction> getFonctions() {
+        return fonction;
+    }
+    
+    public void setFonctions(Set<Fonction> fonctions) {
+        this.fonction = fonction;
     }
 
     public void setBip(String bip) {
