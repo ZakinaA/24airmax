@@ -4,8 +4,6 @@
  */
 package servlet;
 
-import database.DaoCaserne;
-import database.DaoPompier;
 import database.DaoGrade;
 import jakarta.servlet.ServletContext;
 import java.io.IOException;
