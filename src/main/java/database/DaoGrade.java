@@ -4,8 +4,8 @@
  */
 package database;
 
-import static database.DaoPompier.requeteSql;
-import static database.DaoPompier.resultatRequete;
+import static database.DaoGrade.requeteSql;
+import static database.DaoGrade.resultatRequete;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
