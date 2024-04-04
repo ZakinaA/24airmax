@@ -42,6 +42,18 @@
                             out.println("<td><a href ='../ServletVehicule/consulter?idVehicule="+ v.getId()+ "'>");
                             out.println(v.getImmat());
                             out.println("</td>");;
+                            
+                            out.println("<tr>");
+                            out.println(v.getDateOrigine());
+                            out.println("</td>");
+                            
+                            out.println("<tr>");
+                            out.println(v.getDateRevision());
+                            out.println("</td>");
+                            
+                            out.println("<tr>");
+                            out.println(v.getUnTypeVehicule().getLibelle);
+                            out.println("</td>");
                         }
                     %>
                 </tr>

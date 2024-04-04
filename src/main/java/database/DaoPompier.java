@@ -35,15 +35,15 @@ public class DaoPompier {
             while (resultatRequete.next()){
                 
                 Pompier p = new Pompier();
-                    p.setId(resultatRequete.getInt("p_id"));
-                    p.setNom(resultatRequete.getString("p_nom"));
-                    p.setPrenom(resultatRequete.getString("p_prenom"));
+                    p.setId(resultatRequete.getInt("pom_id"));
+                    p.setNom(resultatRequete.getString("pom_nom"));
+                    p.setPrenom(resultatRequete.getString("pom_prenom"));
                 Caserne c = new Caserne();
-                    c.setId(resultatRequete.getInt("c_id"));
-                    c.setNom(resultatRequete.getString("c_nom"));
+                    c.setId(resultatRequete.getInt("cas_id"));
+                    c.setNom(resultatRequete.getString("cas_nom"));
                 Grade g = new Grade();
-                    g.setId(resultatRequete.getInt("g_id"));
-                    g.setLibelle(resultatRequete.getString("g_libelle"));
+                    g.setId(resultatRequete.getInt("gra_id"));
+                    g.setLibelle(resultatRequete.getString("gra_libelle"));
                 
                 p.setUneCaserne(c);
                 p.setUnGrade(g);
@@ -73,12 +73,12 @@ public class DaoPompier {
             if (resultatRequete.next()){
                 
                     p = new Pompier();
-                    p.setId(resultatRequete.getInt("p_id"));
-                    p.setNom(resultatRequete.getString("p_nom"));
-                    p.setPrenom(resultatRequete.getString("p_prenom"));
+                    p.setId(resultatRequete.getInt("pom_id"));
+                    p.setNom(resultatRequete.getString("pom_nom"));
+                    p.setPrenom(resultatRequete.getString("pom_prenom"));
                 Caserne c = new Caserne();
-                    c.setId(resultatRequete.getInt("c_id"));
-                    c.setNom(resultatRequete.getString("c_nom"));
+                    c.setId(resultatRequete.getInt("cas_id"));
+                    c.setNom(resultatRequete.getString("cas_nom"));
                 
                 p.setUneCaserne(c);
                 

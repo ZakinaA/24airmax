@@ -24,24 +24,25 @@ public class DaoVehicule {
         
         ArrayList<Vehicule> lesVehicules = new ArrayList<Vehicule>();
         try{
-            requeteSql = cnx.prepareStatement("select vehicule.id as v_id, vehicule.immat as v_immat, vehicule.dateOrigine as v_dateOrigine, vehicule_dateRevision as v.dateRevision" +
-                         " from vehicule INNER JOIN  typeVehicule t"+
-                         " ON vehicule.typeVehicule_id = t.id");
+            requeteSql = cnx.prepareStatement("select veh_id, veh_immat, veh_dateOrigine, veh_dateRevision, typ_id, type_nom"
+                    + "from vehicule"
+                    + "inner join type_vehicule"
+                    + "on typ_id = veh_type_id");
             resultatRequete = requeteSql.executeQuery();
             
             while (resultatRequete.next()){
                 
                 Vehicule v = new Vehicule();
-                    v.setId(resultatRequete.getInt("v_id"));
-                    v.setImmat(resultatRequete.getString("v_immat"));
-                    Date dateOrigine = resultatRequete.getDate("v_dateOrigine");
+                    v.setId(resultatRequete.getInt("veh_id"));
+                    v.setImmat(resultatRequete.getString("veh_immat"));
+                    
+                    Date dateOrigine = resultatRequete.getDate("veh_dateOrigine");
                     v.setDateOrigine(dateOrigine.toLocalDate());
-                    Date dateRevision = resultatRequete.getDate("v_dateRevision");
+                    Date dateRevision = resultatRequete.getDate("veh_dateRevision");
                     v.setDateRevision(dateRevision.toLocalDate());
                     TypeVehicule t = new TypeVehicule();
-                    t.setId(resultatRequete.getInt("t_id"));
-                    t.setNom(resultatRequete.getString("t_nom"));
-                    t.setCarac(resultatRequete.getString("t_carac"));
+                    t.setId(resultatRequete.getInt("typ_id"));
+                    t.setNom(resultatRequete.getString("typ_nom"));
                 
                 lesVehicules.add(v);
             }
