@@ -10,7 +10,6 @@
         <servlet-class>servlet.ServletPompier</servlet-class>
     </servlet>
     <servlet>
-
         <servlet-name>ServletFonction</servlet-name>
         <servlet-class>servlet.ServletFonction</servlet-class>
     </servlet>
@@ -38,6 +37,9 @@
         <servlet-name>ServletGrade</servlet-name>
         <url-pattern>/ServletGrade/lister</url-pattern>
      </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>ServletFonction</servlet-name>
+        <url-pattern>/ServletFonction/consulter</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
