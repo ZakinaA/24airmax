@@ -31,9 +31,9 @@ public class DaoGrade {
             while (resultatRequete.next()){
                 
                 Grade g = new Grade();
-                    g.setId(resultatRequete.getInt("id"));
-                    g.setLibelle(resultatRequete.getString("libelle"));
-                    g.setSurgrade(resultatRequete.getString("surgrade"));
+                    g.setId(resultatRequete.getInt("gra_id"));
+                    g.setLibelle(resultatRequete.getString("gra_libelle"));
+                    g.setSurgrade(resultatRequete.getString("gra_surgrade_id"));
 
                 lesGrades.add(g);
             }
