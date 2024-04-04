@@ -21,7 +21,7 @@
         <title>APPLICATION DE GESTION SDIS CALVADOS</title>
     </head>
     <body>
-        <h1>Liste des pompiers du Calvados</h1>
+        <h1>Liste des Grades</h1>
             <%
                 ArrayList<Grade> lesGrades = (ArrayList)request.getAttribute("pLesGrades");
             %>
