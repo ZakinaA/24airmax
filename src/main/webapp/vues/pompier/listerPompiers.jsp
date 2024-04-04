@@ -7,6 +7,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Pompier"%>
 <%@page import="model.Caserne"%>
+<%@page import="model.Vehicule"%>
+<%@page import="model.Grade"%>
+
+
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -30,7 +34,9 @@
                     <th>id</th>
                     <th>nom</th>
                     <th>prenom</th>
-                    <th>caserne</th>                
+                    <th>caserne</th>       
+                    <th>grade</th>                
+
                 </tr>
             </thead>
             <tbody>
@@ -44,7 +50,7 @@
 
                             out.println("<td><a href ='../ServletPompier/consulter?idPompier="+ p.getId()+ "'>");
                             out.println(p.getNom());
-                            out.println("</td>");;
+                            out.println("</td>");
 
                             out.println("<td>");
                             out.println(p.getPrenom());
@@ -52,8 +58,12 @@
                            
                             out.println("<td>");
                             out.println(p.getUneCaserne().getNom());
+                            out.println("</td>");          
+                                                       
+                            out.println("<td>");
+                            out.println(p.getUnGrade().getLibelle());
                             out.println("</td>");
-                               
+
                         }
                     %>
                 </tr>
