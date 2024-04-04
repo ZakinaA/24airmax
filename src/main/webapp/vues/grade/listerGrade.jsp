@@ -38,11 +38,11 @@
                         for (Grade g : lesGrades)
                         {              
                             out.println("<tr><td>");
-                            out.println(p.getId());
+                            out.println(g.getId());
                             out.println("</a></td>");
 
-                            out.println("<td><a href ='../ServletGrade/consulter?idGrade="+ p.getId()+ "'>");
-                            out.println(p.getLibelle());
+                            out.println("<td><a href ='../ServletGrade/consulter?idGrade="+ g.getId()+ "'>");
+                            out.println(g.getLibelle());
                             out.println("</td>");;
                         }
                     %>
