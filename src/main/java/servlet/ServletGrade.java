@@ -18,7 +18,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.util.ArrayList;
 import model.Grade;
-import model.Pompier;
 
 
 /**
