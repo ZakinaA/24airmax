@@ -26,10 +26,10 @@ public class DaoPompier {
         
         ArrayList<Pompier> lesPompiers = new ArrayList<Pompier>();
         try{
-            requeteSql = cnx.prepareStatement("select pompier.id as p_id, pompier.nom as p_nom, pompier.prenom as p_prenom, c.id as c_id, c.nom AS c_nom, g.id as g_id, g.libelle as g_libelle " +
+            requeteSql = cnx.prepareStatement("select pom_id, pom_bip, pom_nom, pom_prenom, pom_caserne_id, pom_grade_id, cas_id, cas_nom, gra_id, gra_libelle " +
                          "from pompier " +
-                         "inner join caserne c on pompier.caserne_id = c.id " +
-                         "inner join grade g ON pompier.grade_id = g.id");
+                         "inner join caserne on pom_caserne_id = cas_id " +
+                         "inner join grade ON pom_grade_id = gra_id");
             resultatRequete = requeteSql.executeQuery();
             
             while (resultatRequete.next()){
@@ -63,10 +63,10 @@ public class DaoPompier {
         
         Pompier p = null ;
         try{
-            requeteSql = cnx.prepareStatement("select pompier.id as p_id, pompier.nom as p_nom, pompier.prenom as p_prenom, c.id as c_id, c.nom as c_nom " +
+            requeteSql = cnx.prepareStatement("select pom_id, pom_bip, pom_nom, pom_prenom, pom_caserne_id, pom_grade_id, cas_id, cas_nom" +
                          " from pompier inner join caserne c " +
-                         " on pompier.caserne_id = c.id "+
-                         " where pompier.id= ? ");
+                         " on pom_caserne_id = cas_id "+
+                         " where pom_id= ? ");
             requeteSql.setInt(1, idPompier);
             resultatRequete = requeteSql.executeQuery();
             

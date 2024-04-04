@@ -9,12 +9,15 @@
         <servlet-name>ServletPompier</servlet-name>
         <servlet-class>servlet.ServletPompier</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>ServletVehicule</servlet-name>
         <servlet-class>servlet.ServletVehicule</servlet-class>
     </servlet>
+    <servlet>
         <servlet-name>ServletFonction</servlet-name>
         <servlet-class>servlet.ServletFonction</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>ServletGrade</servlet-name>
         <servlet-class>servlet.ServletGrade</servlet-class>
@@ -52,5 +55,6 @@
             30
         </session-timeout>
     </session-config>
+</web-app>
     
     

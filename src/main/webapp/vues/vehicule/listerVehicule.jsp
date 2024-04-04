@@ -52,7 +52,7 @@
                             out.println("</td>");
                             
                             out.println("<tr>");
-                            out.println(v.getUnTypeVehicule().getLibelle);
+                            out.println(v.getUnTypeVehicule().getNom());
                             out.println("</td>");
                         }
                     %>
