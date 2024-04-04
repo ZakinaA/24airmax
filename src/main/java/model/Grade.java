@@ -15,6 +15,7 @@ public class Grade {
     
     private int id;
     private String libelle;
+    private String surgrade;
     private ArrayList<Pompier> lesPompiers;
     
     public Grade() {
@@ -34,6 +35,14 @@ public class Grade {
 
     public void setLibelle(String libelle) {
         this.libelle = libelle;
+    }
+    
+    public int getSurgrade() {
+        return surgrade;
+    }
+
+    public void setSurgrade(String surgrade) {
+        this.surgrade = surgrade;
     }
 
     public Grade(int id, String libelle) {
