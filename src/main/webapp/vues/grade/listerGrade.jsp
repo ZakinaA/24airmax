@@ -35,7 +35,7 @@
             <tbody>
                 <tr>
                     <%
-                        for (Grade p : lesGrades)
+                        for (Grade g : lesGrades)
                         {              
                             out.println("<tr><td>");
                             out.println(p.getId());
