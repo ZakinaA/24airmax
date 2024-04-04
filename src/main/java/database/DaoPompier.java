@@ -9,10 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Caserne;
 import model.Pompier;
+import model.Caserne;
 import model.Grade;
-
 /**
  *
  * @author zakina
@@ -32,6 +31,7 @@ public class DaoPompier {
                          "inner join caserne on pom_caserne_id = cas_id " +
                          "inner join grade ON pom_grade_id = gra_id " + 
                          "order by pom_id");
+
             resultatRequete = requeteSql.executeQuery();
             
             while (resultatRequete.next()){

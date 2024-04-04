@@ -34,8 +34,8 @@ public class DaoFonction {
             while (resultatRequete.next()){
                 
                 Fonction f = new Fonction();
-                    f.setId(resultatRequete.getInt("id"));
-                    f.setLibelle(resultatRequete.getString("libelle"));
+                    f.setId(resultatRequete.getInt("fon_id"));
+                    f.setLibelle(resultatRequete.getString("fon_libelle"));
 
                 lesFonctions.add(f);
             }
@@ -43,7 +43,7 @@ public class DaoFonction {
         }
         catch (SQLException e){
             e.printStackTrace();
-            System.out.println("La requête de getLesFonctions e généré une erreur");
+            System.out.println("La requête de getLesFonctions a généré une erreur");
         }
         return lesFonctions;
     }
