@@ -16,7 +16,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.sql.Connection;
 import java.util.ArrayList;
-import model.Caserne;
 import model.Pompier;
 import model.Grade;
 
@@ -24,6 +23,8 @@ import model.Grade;
  *
  * @author zakina
  */
+
+@WebServlet(name = "ServletGrade", urlPatterns = {"/ServletGrade"})
 public class ServletGrade extends HttpServlet {
 
      Connection cnx ;
