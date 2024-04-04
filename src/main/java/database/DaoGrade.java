@@ -33,7 +33,7 @@ public class DaoGrade {
                 Grade g = new Grade();
                     g.setId(resultatRequete.getInt("id"));
                     g.setLibelle(resultatRequete.getString("libelle"));
-                    g.setLibelle(resultatRequete.getString("surgrade"));
+                    g.setSurgrade(resultatRequete.getString("surgrade"));
 
                 lesGrades.add(g);
             }
