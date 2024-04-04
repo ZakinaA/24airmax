@@ -18,7 +18,9 @@ public class Pompier {
     private String nom;
     private String prenom ;
     private Caserne uneCaserne ;
-    private Set<Fonction> fonction = new HashSet<>();
+    private Vehicule unVehicule;
+    private Grade unGrade;
+    private Fonction uneFonction;
 
     public Pompier() {
     }
@@ -70,6 +72,32 @@ public class Pompier {
     public void setUneCaserne(Caserne uneCaserne) {
         this.uneCaserne = uneCaserne;
     }
+
+    public Vehicule getUnVehicule() {
+        return unVehicule;
+    }
+
+    public void setUnVehicule(Vehicule unVehicule) {
+        this.unVehicule = unVehicule;
+    }
+
+    public Grade getUnGrade() {
+        return unGrade;
+    }
+
+    public void setUnGrade(Grade unGrade) {
+        this.unGrade = unGrade;
+    }
+
+    public Fonction getUneFonction() {
+        return uneFonction;
+    }
+
+    public void setUneFonction(Fonction uneFonction) {
+        this.uneFonction = uneFonction;
+    }
+    
+    
     
     
     

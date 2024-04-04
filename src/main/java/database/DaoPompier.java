@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Caserne;
 import model.Pompier;
+import model.Grade;
 
 /**
  *
@@ -26,9 +27,10 @@ public class DaoPompier {
         
         ArrayList<Pompier> lesPompiers = new ArrayList<Pompier>();
         try{
-            requeteSql = cnx.prepareStatement("select pompier.id as p_id, pompier.nom as p_nom, pompier.prenom as p_prenom, c.id as c_id, c.nom as c_nom " +
-                         " from pompier inner join caserne c " +
-                         " on pompier.caserne_id = c.id ");
+            requeteSql = cnx.prepareStatement("select pompier.id as p_id, pompier.nom as p_nom, pompier.prenom as p_prenom, c.id as c_id, c.nom AS c_nom, g.id as g_id, g.libelle as g_libelle " +
+                         "from pompier " +
+                         "inner join caserne c on pompier.caserne_id = c.id " +
+                         "inner join grade g ON pompier.grade_id = g.id");
             resultatRequete = requeteSql.executeQuery();
             
             while (resultatRequete.next()){
@@ -40,8 +42,12 @@ public class DaoPompier {
                 Caserne c = new Caserne();
                     c.setId(resultatRequete.getInt("c_id"));
                     c.setNom(resultatRequete.getString("c_nom"));
+                Grade g = new Grade();
+                    g.setId(resultatRequete.getInt("g_id"));
+                    g.setLibelle(resultatRequete.getString("g_libelle"));
                 
                 p.setUneCaserne(c);
+                p.setUnGrade(g);
                 
                 lesPompiers.add(p);
             }
