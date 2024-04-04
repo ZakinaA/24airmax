@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author ts1sio
@@ -11,8 +14,14 @@ package model;
 public class Fonction {
     private int id;
     private String libelle ;
+    private String uneFonction ;
+    private Set<Pompier> pompier = new HashSet<>();
 
     public Fonction() {
+    }
+    
+      public Set<Pompier> getPompiers() {
+        return pompier;
     }
 
     public int getId() {
@@ -22,7 +31,10 @@ public class Fonction {
     public String getLibelle() {
         return libelle;
     }
-
+    
+        public void setPompiers(Set<Pompier> pompier) {
+        this.pompier = pompier;
+    }
     public void setId(int id) {
         this.id = id;
     }
@@ -34,6 +46,14 @@ public class Fonction {
     public Fonction(int id, String libelle) {
         this.id = id;
         this.libelle = libelle;
+    }
+
+    public String getUneFonction() {
+        return uneFonction;
+    }
+
+    public void setUneFonction(String uneFonction) {
+        this.uneFonction = uneFonction;
     }
     
     
