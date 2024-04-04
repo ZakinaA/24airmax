@@ -10,6 +10,11 @@
         <servlet-class>servlet.ServletPompier</servlet-class>
     </servlet>
     <servlet>
+
+        <servlet-name>ServletFonction</servlet-name>
+        <servlet-class>servlet.ServletFonction</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>ServletGrade</servlet-name>
         <servlet-class>servlet.ServletGrade</servlet-class>
     </servlet>
@@ -26,8 +31,13 @@
         <url-pattern>/ServletPompier/ajouter</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>ServletFonction</servlet-name>
+        <url-pattern>/ServletFonction/lister</url-pattern>
+     </servlet-mapping>
+     <servlet-mapping>
         <servlet-name>ServletGrade</servlet-name>
         <url-pattern>/ServletGrade/lister</url-pattern>
+     </servlet-mapping>
     </servlet-mapping>
     <session-config>
         <session-timeout>

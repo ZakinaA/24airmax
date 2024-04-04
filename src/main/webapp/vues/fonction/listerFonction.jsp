@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="model.Fonction"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,7 +21,7 @@
     <body>
         <h1>Liste des fonctions du Calvados</h1>
             <%
-                ArrayList<Fonction> lesFonctions = (ArrayList)request.getAttribute("pLesFonctions");
+                ArrayList<Fonction> lesFonctions = (ArrayList)request.getAttribute("fLesFonctions");
             %>
             <table>  
             <thead>
@@ -31,14 +33,14 @@
             <tbody>
                 <tr>
                     <%
-                        for (Pompier p : lesPompiers)
+                        for (Fonction f : lesFonctions)
                         {              
                             out.println("<tr><td>");
-                            out.println(p.getId());
+                            out.println(f.getId());
                             out.println("</a></td>");
 
-                            out.println("<td><a href ='../ServletPompier/consulter?idPompier="+ p.getId()+ "'>");
-                            out.println(p.getlibelle());
+                            out.println("<td><a href ='../ServletFonction/consulter?idFonction="+ f.getId()+ "'>");
+                            out.println(f.getLibelle());
                             out.println("</td>");;                               
                         }
                     %>

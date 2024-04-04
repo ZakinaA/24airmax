@@ -4,6 +4,9 @@
  */
 package model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  *
  * @author zakina
@@ -32,6 +35,14 @@ public class Pompier {
 
     public String getBip() {
         return bip;
+    }
+    
+    public Set<Fonction> getFonctions() {
+        return fonction;
+    }
+    
+    public void setFonctions(Set<Fonction> fonctions) {
+        this.fonction = fonction;
     }
 
     public void setBip(String bip) {
