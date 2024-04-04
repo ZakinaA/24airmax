@@ -24,9 +24,9 @@ public class DaoVehicule {
         
         ArrayList<Vehicule> lesVehicules = new ArrayList<Vehicule>();
         try{
-            requeteSql = cnx.prepareStatement("select veh_id, veh_immat, veh_dateOrigine, veh_dateRevision, typ_id, typ_nom"
-                    + "from vehicule"
-                    + "inner join type_vehicule"
+            requeteSql = cnx.prepareStatement("select veh_id, veh_immat, veh_dateOrigine, veh_dateRevision, typ_id, typ_nom "             
+                    + "from vehicule "
+                    + "inner join type_vehicule "
                     + "on typ_id = veh_type_id");
             resultatRequete = requeteSql.executeQuery();
             
@@ -40,9 +40,13 @@ public class DaoVehicule {
                     Date dateRevision = resultatRequete.getDate("veh_dateRevision");
                     v.setDateRevision(dateRevision.toLocalDate());
                     
+                    
+                    
                 TypeVehicule t = new TypeVehicule();
                     t.setId(resultatRequete.getInt("typ_id"));
                     t.setNom(resultatRequete.getString("typ_nom"));
+                    
+                    v.setUnTypeVehicule(t);
                 
                 lesVehicules.add(v);
             }

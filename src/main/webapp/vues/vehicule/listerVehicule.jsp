@@ -27,7 +27,11 @@
             <thead>
                 <tr>             
                     <th>id</th>
-                    <th>immat</th>             
+                    <th>immat</th>
+                    <th>date Origine</th>
+                    <th>date Revision</th>
+                    <th>type</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -43,17 +47,17 @@
                             out.println(v.getImmat());
                             out.println("</td>");;
                             
-                            out.println("<tr>");
+                            out.println("<td>");
                             out.println(v.getDateOrigine());
                             out.println("</td>");
                             
-                            out.println("<tr>");
+                            out.println("<td>");
                             out.println(v.getDateRevision());
                             out.println("</td>");
                             
-                            out.println("<tr>");
+                            out.println("<td>");
                             out.println(v.getUnTypeVehicule().getNom());
-                            out.println("</td>");
+                            out.println("</td></tr>");
                         }
                     %>
                 </tr>
