@@ -23,7 +23,7 @@
     <body>
         <h1>Liste des Grades</h1>
             <%
-                ArrayList<Grade> lesGrades = (ArrayList)request.getAttribute("pLesGrades");
+                ArrayList<Grade> lesGrades = (ArrayList)request.getAttribute("gLesGrades");
             %>
             <table>  
             <thead>
