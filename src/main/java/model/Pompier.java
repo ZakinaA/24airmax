@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,6 +23,7 @@ public class Pompier {
     private Grade unGrade;
     private Fonction uneFonction;
     private Set<Fonction> fonction = new HashSet<>();
+    private ArrayList<Intervention> lesInterventions;
 
     public Pompier() {
     }
@@ -96,6 +98,14 @@ public class Pompier {
 
     public void setUneFonction(Fonction uneFonction) {
         this.uneFonction = uneFonction;
+    }
+
+    public ArrayList<Intervention> getLesInterventions() {
+        return lesInterventions;
+    }
+
+    public void setLesInterventions(ArrayList<Intervention> lesInterventions) {
+        this.lesInterventions = lesInterventions;
     }
     
     
