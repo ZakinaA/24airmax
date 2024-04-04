@@ -25,7 +25,6 @@
         <servlet-name>ServletPompier</servlet-name>
         <url-pattern>/ServletPompier/ajouter</url-pattern>
     </servlet-mapping>
-    <session-config>
     <servlet-mapping>
         <servlet-name>ServletGrade</servlet-name>
         <url-pattern>/ServletGrade/lister</url-pattern>
