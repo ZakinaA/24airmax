@@ -21,6 +21,7 @@ public class Pompier {
     private Vehicule unVehicule;
     private Grade unGrade;
     private Fonction uneFonction;
+    private Set<Fonction> fonction = new HashSet<>();
 
     public Pompier() {
     }
