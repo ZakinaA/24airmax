@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package model;
+
 import java.util.ArrayList;
 /**
  *
@@ -14,7 +15,7 @@ public class Grade {
     
     private int id;
     private String libelle;
-    private ArrayList<Grade> lesGrades;
+    private ArrayList<Pompier> lesPompiers;
     
     public Grade() {
     }
@@ -39,19 +40,19 @@ public class Grade {
         this.id = id;
         this.libelle = libelle;
     }
-    public ArrayList<Grade> getLesGrades() {
-        return lesGrades;
+    public ArrayList<Pompier> getLesPompiers() {
+        return lesPompiers;
     }
 
-    public void setLesEleves(ArrayList<Grade> lesGrades) {
-        this.lesGrades = lesGrades;
+    public void setLesPompiers(ArrayList<Pompier> lesPompiers) {
+        this.lesPompiers = lesPompiers;
     }
     
-    public void addUnEleve(Grade unGrade){
-        if (lesGrades == null) {
-            lesGrades = new ArrayList<Grade>();
+    public void addUnPompier(Pompier unPompier){
+        if (lesPompiers == null) {
+            lesPompiers = new ArrayList<Pompier>();
         }
-        lesGrades.add(unGrade);
+        lesPompiers.add(unPompier);
     }
     
 }
