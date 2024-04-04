@@ -29,7 +29,8 @@
             <thead>
                 <tr>             
                     <th>id</th>
-                    <th>libelle</th>              
+                    <th>libelle</th>
+                    <th>surgrade</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,6 +44,10 @@
 
                             out.println("<td><a href ='../ServletGrade/consulter?idGrade="+ g.getId()+ "'>");
                             out.println(g.getLibelle());
+                            out.println("</td>");;
+                            
+                            out.println("<td><a href ='../ServletGrade/consulter?idGrade="+ g.getId()+ "'>");
+                            out.println(g.getSurgrade());
                             out.println("</td>");;
                         }
                     %>
