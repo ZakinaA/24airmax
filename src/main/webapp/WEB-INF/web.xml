@@ -38,7 +38,6 @@
         <servlet-name>ServletGrade</servlet-name>
         <url-pattern>/ServletGrade/lister</url-pattern>
      </servlet-mapping>
-    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
