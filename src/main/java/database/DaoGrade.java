@@ -4,8 +4,6 @@
  */
 package database;
 
-import static database.DaoPompier.requeteSql;
-import static database.DaoPompier.resultatRequete;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,6 +33,7 @@ public class DaoGrade {
                 Grade g = new Grade();
                     g.setId(resultatRequete.getInt("id"));
                     g.setLibelle(resultatRequete.getString("libelle"));
+                    g.setSurgrade(resultatRequete.getString("surgrade"));
 
                 lesGrades.add(g);
             }
