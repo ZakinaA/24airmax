@@ -21,7 +21,7 @@
     <body>
         <h1>Liste des pompiers du Calvados</h1>
             <%
-                ArrayList<Vehicule> lesVehicules = (ArrayList)request.getAttribute("Les Vehicules");
+                ArrayList<Vehicule> lesVehicules = (ArrayList)request.getAttribute("vLesVehicules");
             %>
             <table>  
             <thead>
@@ -33,14 +33,14 @@
             <tbody>
                 <tr>
                     <%
-                        for (Pompier p : lesVehicules)
+                        for (Vehicule v : lesVehicules)
                         {              
                             out.println("<tr><td>");
-                            out.println(p.getId());
+                            out.println(v.getId());
                             out.println("</a></td>");
 
-                            out.println("<td><a href ='../ServletVehicule/consulter?idVehicule="+ p.getId()+ "'>");
-                            out.println(p.getImmat());
+                            out.println("<td><a href ='../ServletVehicule/consulter?idVehicule="+ v.getId()+ "'>");
+                            out.println(v.getImmat());
                             out.println("</td>");;
                         }
                     %>

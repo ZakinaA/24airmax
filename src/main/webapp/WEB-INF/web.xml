@@ -26,4 +26,16 @@
             30
         </session-timeout>
     </session-config>
+    <servlet>
+        <servlet-name>ServletVehicule</servlet-name>
+        <servlet-class>servlet.ServletVehicule</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ServletVehicule</servlet-name>
+        <url-pattern>/ServletVehicule/lister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletVehicule</servlet-name>
+        <url-pattern>/ServletVehicule/consulter</url-pattern>
+    </servlet-mapping>
 </web-app>

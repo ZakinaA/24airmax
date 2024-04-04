@@ -7,6 +7,7 @@ public class Vehicule {
     private String immat;
     private LocalDate dateOrigine;
     private LocalDate dateRevision;
+    private TypeVehicule unTypeVehicule;
     
     public Vehicule(){
         
@@ -17,6 +18,7 @@ public class Vehicule {
         this.immat=immat;
         this.dateOrigine=dateOrigine;
         this.dateRevision=dateRevision;
+        this.unTypeVehicule=unTypeVehicule;
     }
 
     public int getId() {
@@ -50,6 +52,12 @@ public class Vehicule {
     public void setDateRevision(LocalDate dateRevision) {
         this.dateRevision = dateRevision;
     }
-    
-    
+
+    public TypeVehicule getUnTypeVehicule() {
+        return unTypeVehicule;
+    }
+
+    public void setUnTypeVehicule(TypeVehicule unTypeVehicule) {
+        this.unTypeVehicule = unTypeVehicule;
+    }
 }
