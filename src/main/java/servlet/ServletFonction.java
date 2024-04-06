@@ -75,25 +75,44 @@ public class ServletFonction extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+    String url = request.getRequestURI();
+
+    if (url.equals("/sdisweb/ServletFonction/lister")) {
+        // Traitement pour lister les fonctions
+        ArrayList<Fonction> lesFonctions = DaoFonction.getLesFonctions(cnx);
+        request.setAttribute("fLesFonctions", lesFonctions);
+        getServletContext().getRequestDispatcher("/vues/fonction/listerFonction.jsp").forward(request, response);
+    } else if (url.equals("/sdisweb/ServletFonction/consulter")) {
+        // Traitement pour consulter une fonction
+        int idFonction = Integer.parseInt(request.getParameter("idFonction"));
+        System.out.println("Fonction à afficher = " + idFonction);
+        Fonction f = DaoFonction.getFonctionById(cnx, idFonction);
+        request.setAttribute("pFonction", f);
+        getServletContext().getRequestDispatcher("/vues/fonction/consulterfonction.jsp").forward(request, response);
+    } else if (url.equals("/sdisweb/ServletFonction/ajouter")) {
+        // Traitement pour ajouter une fonction
+        ArrayList<Caserne> lesCasernes = DaoCaserne.getLesCasernes(cnx);
+        request.setAttribute("pLesCasernes", lesCasernes);
+        getServletContext().getRequestDispatcher("/vues/pompier/ajouterPompier.jsp").forward(request, response);
+    }
+}
+
         
-         String url = request.getRequestURI();  
-       
-        // Récup et affichage les eleves 
-        if(url.equals("/sdisweb/ServletFonction/lister"))
-        {              
-            ArrayList<Fonction> lesFonctions = DaoFonction.getLesFonctions(cnx);
-            request.setAttribute("fLesFonctions", lesFonctions);
-            //System.out.println("lister eleves - nombres d'élèves récupérés" + lesEleves.size() );
-           getServletContext().getRequestDispatcher("/vues/fonction/listerFonction.jsp").forward(request, response);
-        }
+        /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
         
 
           
         
     
-        
-    }
+   }
 
-}
+
