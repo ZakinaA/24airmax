@@ -9,10 +9,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Caserne;
 import model.Pompier;
+import model.Caserne;
 import model.Grade;
-
 /**
  *
  * @author zakina
@@ -27,24 +26,26 @@ public class DaoPompier {
         
         ArrayList<Pompier> lesPompiers = new ArrayList<Pompier>();
         try{
-            requeteSql = cnx.prepareStatement("select pompier.id as p_id, pompier.nom as p_nom, pompier.prenom as p_prenom, c.id as c_id, c.nom AS c_nom, g.id as g_id, g.libelle as g_libelle " +
+            requeteSql = cnx.prepareStatement("select pom_id, pom_nom, pom_prenom, pom_caserne_id, pom_grade_id, cas_id, cas_nom, gra_id, gra_libelle " +
                          "from pompier " +
-                         "inner join caserne c on pompier.caserne_id = c.id " +
-                         "inner join grade g ON pompier.grade_id = g.id");
+                         "inner join caserne on pom_caserne_id = cas_id " +
+                         "inner join grade ON pom_grade_id = gra_id " + 
+                         "order by pom_id");
+
             resultatRequete = requeteSql.executeQuery();
             
             while (resultatRequete.next()){
                 
                 Pompier p = new Pompier();
-                    p.setId(resultatRequete.getInt("p_id"));
-                    p.setNom(resultatRequete.getString("p_nom"));
-                    p.setPrenom(resultatRequete.getString("p_prenom"));
+                    p.setId(resultatRequete.getInt("pom_id"));
+                    p.setNom(resultatRequete.getString("pom_nom"));
+                    p.setPrenom(resultatRequete.getString("pom_prenom"));
                 Caserne c = new Caserne();
-                    c.setId(resultatRequete.getInt("c_id"));
-                    c.setNom(resultatRequete.getString("c_nom"));
+                    c.setId(resultatRequete.getInt("cas_id"));
+                    c.setNom(resultatRequete.getString("cas_nom"));
                 Grade g = new Grade();
-                    g.setId(resultatRequete.getInt("g_id"));
-                    g.setLibelle(resultatRequete.getString("g_libelle"));
+                    g.setId(resultatRequete.getInt("gra_id"));
+                    g.setLibelle(resultatRequete.getString("gra_libelle"));
                 
                 p.setUneCaserne(c);
                 p.setUnGrade(g);
@@ -64,22 +65,23 @@ public class DaoPompier {
         
         Pompier p = null ;
         try{
-            requeteSql = cnx.prepareStatement("select pompier.id as p_id, pompier.nom as p_nom, pompier.prenom as p_prenom, c.id as c_id, c.nom as c_nom " +
-                         " from pompier inner join caserne c " +
-                         " on pompier.caserne_id = c.id "+
-                         " where pompier.id= ? ");
+            requeteSql = cnx.prepareStatement("select pom_id, pom_nom, pom_prenom, pom_caserne_id, pom_grade_id, cas_id, cas_nom, gra_id, gra_libelle " +
+                         "from pompier " +
+                         "inner join caserne on pom_caserne_id = cas_id " +
+                         "inner join grade ON pom_grade_id = gra_id " + 
+                         " where pom_id= ? ");
             requeteSql.setInt(1, idPompier);
             resultatRequete = requeteSql.executeQuery();
             
             if (resultatRequete.next()){
                 
                     p = new Pompier();
-                    p.setId(resultatRequete.getInt("p_id"));
-                    p.setNom(resultatRequete.getString("p_nom"));
-                    p.setPrenom(resultatRequete.getString("p_prenom"));
+                    p.setId(resultatRequete.getInt("pom_id"));
+                    p.setNom(resultatRequete.getString("pom_nom"));
+                    p.setPrenom(resultatRequete.getString("pom_prenom"));
                 Caserne c = new Caserne();
-                    c.setId(resultatRequete.getInt("c_id"));
-                    c.setNom(resultatRequete.getString("c_nom"));
+                    c.setId(resultatRequete.getInt("cas_id"));
+                    c.setNom(resultatRequete.getString("cas_nom"));
                 
                 p.setUneCaserne(c);
                 

@@ -9,6 +9,11 @@
         <servlet-name>ServletPompier</servlet-name>
         <servlet-class>servlet.ServletPompier</servlet-class>
     </servlet>
+    
+    <servlet>
+        <servlet-name>ServletVehicule</servlet-name>
+        <servlet-class>servlet.ServletVehicule</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>ServletFonction</servlet-name>
         <servlet-class>servlet.ServletFonction</servlet-class>
@@ -37,9 +42,16 @@
         <servlet-name>ServletGrade</servlet-name>
         <url-pattern>/ServletGrade/lister</url-pattern>
      </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ServletFonction</servlet-name>
         <url-pattern>/ServletFonction/consulter</url-pattern>
+     </servlet-mapping>
+        <servlet-name>ServletVehicule</servlet-name>
+        <url-pattern>/ServletVehicule/lister</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ServletVehicule</servlet-name>
+        <url-pattern>/ServletVehicule/consulter</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
@@ -47,3 +59,5 @@
         </session-timeout>
     </session-config>
 </web-app>
+    
+    

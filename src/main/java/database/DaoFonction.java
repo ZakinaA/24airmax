@@ -24,8 +24,8 @@ public class DaoFonction {
             while (resultatRequete.next()){
                 
                 Fonction f = new Fonction();
-                f.setId(resultatRequete.getInt("id"));
-                f.setLibelle(resultatRequete.getString("libelle"));
+                    f.setId(resultatRequete.getInt("fon_id"));
+                    f.setLibelle(resultatRequete.getString("fon_libelle"));
 
                 lesFonctions.add(f);
             }
