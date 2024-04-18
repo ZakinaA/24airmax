@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,6 +19,7 @@ public class Pompier {
     private int bip ;
     private String nom;
     private String prenom ;
+    private LocalDate datenaissance;
     private Caserne uneCaserne ;
     private Vehicule unVehicule;
     private Grade unGrade;
@@ -26,6 +28,10 @@ public class Pompier {
     private ArrayList<Intervention> lesInterventions;
 
     public Pompier() {
+    }
+
+    public Pompier(int id) {
+        this.id = id;
     }
 
     public int getId() {
@@ -106,6 +112,14 @@ public class Pompier {
 
     public void setLesInterventions(ArrayList<Intervention> lesInterventions) {
         this.lesInterventions = lesInterventions;
+    }
+
+    public LocalDate getDatenaissance() {
+        return datenaissance;
+    }
+
+    public void setDatenaissance(LocalDate datenaissance) {
+        this.datenaissance = datenaissance;
     }
     
     
