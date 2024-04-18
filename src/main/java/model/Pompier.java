@@ -36,7 +36,7 @@ public class Pompier {
         this.id = id;
     }
 
-    public String getBip() {
+    public int getBip() {
         return bip;
     }
     
