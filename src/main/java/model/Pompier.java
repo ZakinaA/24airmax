@@ -19,7 +19,7 @@ public class Pompier {
     private int bip ;
     private String nom;
     private String prenom ;
-    private LocalDate datenaissance;
+    private LocalDate dateNaissance;
     private Caserne uneCaserne ;
     private Vehicule unVehicule;
     private Grade unGrade;
@@ -114,16 +114,16 @@ public class Pompier {
         this.lesInterventions = lesInterventions;
     }
 
-    public LocalDate getDatenaissance() {
-        return datenaissance;
+    public LocalDate getDateNaissance() {
+        return dateNaissance;
     }
 
-    public void setDatenaissance(LocalDate datenaissance) {
-        this.datenaissance = datenaissance;
+    public void setDateNaissance(LocalDate dateNaissance) {
+        this.dateNaissance = dateNaissance;
     }
+
     
-    
-    
+
     
     
 }
