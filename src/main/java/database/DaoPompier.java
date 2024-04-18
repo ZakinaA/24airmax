@@ -26,12 +26,10 @@ public class DaoPompier {
         
         ArrayList<Pompier> lesPompiers = new ArrayList<Pompier>();
         try{
-            requeteSql = cnx.prepareStatement("select pom_id, pom_nom, pom_prenom, pom_caserne_id, pom_grade_id, cas_id, cas_nom, gra_id, gra_libelle " +
-                         "from pompier " +
+            requeteSql = cnx.prepareStatement("select pom_id, pom_nom, pom_prenom, pom_caserne_id, pom_grade_id, cas_id, cas_nom, gra_id, gra_libelle " +                         "from pompier " +
                          "inner join caserne on pom_caserne_id = cas_id " +
                          "inner join grade ON pom_grade_id = gra_id " + 
                          "order by pom_id");
-
             resultatRequete = requeteSql.executeQuery();
             
             while (resultatRequete.next()){
@@ -85,7 +83,7 @@ public class DaoPompier {
                 
                 p.setUneCaserne(c);
                 
-                
+        
             }
            
         }
@@ -105,11 +103,13 @@ public class DaoPompier {
             // id (clé primaire de la table client) est en auto_increment,donc on ne renseigne pas cette valeur
             // la paramètre RETURN_GENERATED_KEYS est ajouté à la requête afin de pouvoir récupérer l'id généré par la bdd (voir ci-dessous)
             // supprimer ce paramètre en cas de requête sans auto_increment.
-            requeteSql=connection.prepareStatement("INSERT INTO pompier ( nom, prenom, caserne_id)\n" +
+            requeteSql=connection.prepareStatement("INSERT INTO pompier ( nom, prenom, caserne_id, fonction_id)\n" +
                     "VALUES (?,?,?)", requeteSql.RETURN_GENERATED_KEYS );
             requeteSql.setString(1, p.getNom());
             requeteSql.setString(2, p.getPrenom());
             requeteSql.setInt(3, p.getUneCaserne().getId());
+            requeteSql.setInt(3, p.getUneFonction().getId());
+
 
            /* Exécution de la requête */
             requeteSql.executeUpdate();

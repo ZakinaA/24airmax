@@ -15,7 +15,7 @@ import java.util.Set;
 public class Pompier {
     
     private int id;
-    private String bip ;
+    private int bip ;
     private String nom;
     private String prenom ;
     private Caserne uneCaserne ;
@@ -36,7 +36,7 @@ public class Pompier {
         this.id = id;
     }
 
-    public String getBip() {
+    public int getBip() {
         return bip;
     }
     
@@ -48,7 +48,7 @@ public class Pompier {
         this.fonction = fonction;
     }
 
-    public void setBip(String bip) {
+    public void setBip(int bip) {
         this.bip = bip;
     }
 

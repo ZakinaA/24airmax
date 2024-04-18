@@ -21,16 +21,13 @@
         <h1>Bienvenue <%  out.println(p.getPrenom());%>  <%  out.println(p.getNom());%></h1>
         <table>
             <tr>
-                <td>Numero Bip : </td><td><%  out.println(p.getBip());%></td>
+                <td>Numero Bip : </td><td><%  out.println(p.getBip().get);%></td>
             </tr>
             <tr>
                 <td>Caserne : </td><td><%  out.println(p.getUneCaserne().getNom());%></td>
             </tr>
             <tr>
-                <td>Fonction : </td><td><%  out.println(p.getUneCaserne().getNom());%></td>
-            </tr>
-            <tr>
-                <td>Intervention : </td><td><%  out.println(p.getUneIntervention());%></td>
+                <td>Fonction : </td><td><%  out.println(p.getUneFonction().getLibelle());%></td>
             </tr>
         </table>
     </body>
