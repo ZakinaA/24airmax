@@ -41,7 +41,7 @@ public class DaoGrade {
         }
         catch (SQLException e){
             e.printStackTrace();
-            System.out.println("La requête de getLesGrades e généré une erreur");
+            System.out.println("La requête de getLesGrades a généré une erreur");
         }
         return lesGrades;
     }

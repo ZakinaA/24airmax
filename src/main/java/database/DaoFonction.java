@@ -1,23 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package database;
 
-import static database.DaoPompier.requeteSql;
-import static database.DaoPompier.resultatRequete;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import model.Caserne;
-import model.Fonction;
+import model.Fonction; // Import manquant
+import model.Pompier;
 
-/**
- *
- * @author zakina
- */
 public class DaoFonction {
     
     Connection cnx;
@@ -28,14 +18,14 @@ public class DaoFonction {
         
         ArrayList<Fonction> lesFonctions= new ArrayList<Fonction>();
         try{
-            requeteSql = cnx.prepareStatement("select * from fonction");
+            requeteSql = cnx.prepareStatement("SELECT * FROM fonction");
             resultatRequete = requeteSql.executeQuery();
             
             while (resultatRequete.next()){
                 
                 Fonction f = new Fonction();
-                    f.setId(resultatRequete.getInt("id"));
-                    f.setLibelle(resultatRequete.getString("libelle"));
+                    f.setId(resultatRequete.getInt("fon_id"));
+                    f.setLibelle(resultatRequete.getString("fon_libelle"));
 
                 lesFonctions.add(f);
             }
@@ -43,9 +33,32 @@ public class DaoFonction {
         }
         catch (SQLException e){
             e.printStackTrace();
-            System.out.println("La requête de getLesFonctions e généré une erreur");
+            System.out.println("La requête de getLesFonctions a généré une erreur");
         }
         return lesFonctions;
     }
     
+    public static Fonction getFonctionById(Connection cnx, int idFonction){
+        
+        Fonction f = null;
+        try{
+            requeteSql = cnx.prepareStatement("SELECT fonction.id AS f_id, fonction.libelle AS f_libelle " +
+                                              "FROM fonction " +
+                                              "WHERE fonction.id = ?");
+            requeteSql.setInt(1, idFonction);
+            resultatRequete = requeteSql.executeQuery();
+            
+            if (resultatRequete.next()){
+                f = new Fonction();
+                f.setId(resultatRequete.getInt("f_id"));
+                f.setLibelle(resultatRequete.getString("f_libelle"));
+            }
+           
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("La requête de getFonctionById a généré une erreur");
+        }
+        
+        return f; // Ajout de cette ligne de retour
+    }
 }
