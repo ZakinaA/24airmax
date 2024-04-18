@@ -24,6 +24,9 @@
             <tr>
                 <td>Type Vehicule : </td><td><%  out.println(v.getUnTypeVehicule().getNom());%></td>
             </tr>
+            <tr>
+                <td>Intervention : </td><td><%  out.println(v.getLesInterventions().getId());%></td>
+            </tr>
         </table>
     </body>
 </html>

@@ -14,9 +14,7 @@ import java.time.LocalTime;
 public class Intervention {
         
     private int id;
-    private String rue;
-    private String ville;
-    private int copos;
+    private String lieu;
     private LocalDate date;
     private LocalTime heureAppel;
     private LocalTime heureArrivee;
@@ -29,9 +27,64 @@ public class Intervention {
         this.id = id;
     }
 
-    public Intervention(String rue) {
-        this.rue = rue;
+    public Intervention( int id, String lieu, LocalDate date, LocalTime heureAppel, LocalTime heureArrivee, LocalTime duree) {
+        this.id = id;
+        this.lieu = lieu;
+        this.date = date;
+        this.heureAppel = heureAppel;
+        this.heureArrivee = heureArrivee;
+        this.duree = duree;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public LocalTime getHeureAppel() {
+        return heureAppel;
+    }
+
+    public void setHeureAppel(LocalTime heureAppel) {
+        this.heureAppel = heureAppel;
+    }
+
+    public LocalTime getHeureArrivee() {
+        return heureArrivee;
+    }
+
+    public void setHeureArrivee(LocalTime heureArrivee) {
+        this.heureArrivee = heureArrivee;
+    }
+
+    public LocalTime getDuree() {
+        return duree;
+    }
+
+    public void setDuree(LocalTime duree) {
+        this.duree = duree;
+    }
+    
+    
 
     
 }
