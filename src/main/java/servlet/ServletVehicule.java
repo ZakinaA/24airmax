@@ -76,6 +76,16 @@ public class ServletVehicule extends HttpServlet {
             //System.out.println("lister eleves - nombres d'élèves récupérés" + lesEleves.size() );
            getServletContext().getRequestDispatcher("/vues/vehicule/listerVehicule.jsp").forward(request, response);
         }
+         if(url.equals("/sdisweb/ServletVehicule/consulter"))
+        {              
+           int idVehicule = Integer.parseInt((String)request.getParameter("idVehicule"));
+            System.out.println( "vehicule à afficher = " + idVehicule);
+            
+            Vehicule v = DaoVehicule.getVehiculeById(cnx, idVehicule);
+            request.setAttribute("vVehicule", v);
+            getServletContext().getRequestDispatcher("/vues/vehicule/consulterVehicule.jsp").forward(request, response);       
+           
+        }
    
         
          // Récup et affichage des clients interessés par une certaine catégorie de ventes

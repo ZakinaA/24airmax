@@ -58,27 +58,34 @@ public class DaoVehicule {
         }
         return lesVehicules;
     }
-/*
+
     public static Vehicule getVehiculeById(Connection cnx, int idVehicule){
         
         Vehicule v = null ;
         try{
-            requeteSql = cnx.prepareStatement("select vehicule.id as v_id, vehicule.immat as v_immat, vehicule.dateOrigine as v_dateOrigine, vehicule.dateRevision as v_dateRevision, t.id as t_id, t.nom as t_nom, t.carac as t_carac" +
-                         " from vehicule inner join typeVehicule c " +
-                         " on vehicule.typeVehicule_id = t.id "+
-                         " where vehicule.id= ? ");
+            requeteSql = cnx.prepareStatement("select veh_id, veh_immat, veh_dateOrigine, veh_dateRevision, typ_id, typ_nom, typ_caracteristiques" +
+                         " from vehicule inner join type_vehicule "+
+                         " on veh_type_id = typ_id "+
+                         " where veh_id= ? ");
             requeteSql.setInt(1, idVehicule);
             resultatRequete = requeteSql.executeQuery();
             
             if (resultatRequete.next()){
                 
                     v = new Vehicule();
-                    v.setId(resultatRequete.getInt("v_id"));
-                    v.setImmat(resultatRequete.getString("v_immat"));
-                    Date dateOrigine = resultatRequete.getDate("v_dateOrigine");
+                    v.setId(resultatRequete.getInt("veh_id"));
+                    v.setImmat(resultatRequete.getString("veh_immat"));
+                    Date dateOrigine = resultatRequete.getDate("veh_dateOrigine");
                     v.setDateOrigine(dateOrigine.toLocalDate());
-                    Date dateRevision = resultatRequete.getDate("v_dateRevision");
+                    Date dateRevision = resultatRequete.getDate("veh_dateRevision");
                     v.setDateRevision(dateRevision.toLocalDate());
+                    
+                    
+                    TypeVehicule t = new TypeVehicule();
+                    t.setId(resultatRequete.getInt("typ_id"));
+                    t.setNom(resultatRequete.getString("typ_nom"));
+                    
+                    v.setUnTypeVehicule(t);
    
             }
      
@@ -89,5 +96,6 @@ public class DaoVehicule {
             System.out.println("La requête de getVehiculeById  a généré une erreur");
         }
         return v ;
-    }*/
+    }
+    
 }

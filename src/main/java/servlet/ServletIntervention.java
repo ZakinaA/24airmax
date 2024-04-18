@@ -1,10 +1,9 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package servlet;
-import database.DaoIntervention;
-import jakarta.servlet.ServletContext;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -12,20 +11,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.sql.Connection;
-import java.util.ArrayList;
 
+/**
+ *
+ * @author ts1sio
+ */
 @WebServlet(name = "ServletIntervention", urlPatterns = {"/ServletIntervention"})
+public class ServletIntervention extends HttpServlet {
 
-public class ServletIntervention {
-    Connection cnx ;
-            
-    
-    public void init()
-    {     
-        ServletContext servletContext=getServletContext();
-        cnx = (Connection)servletContext.getAttribute("connection");     
-    }
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -64,30 +57,7 @@ public class ServletIntervention {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-         String url = request.getRequestURI();  
-       
-        // Récup et affichage les eleves 
-        if(url.equals("/sdisweb/ServletVehicule/lister"))
-        {              
-            ArrayList<Vehicule> lesVehicules = DaoVehicule.getLesVehicules(cnx);
-            request.setAttribute("vLesVehicules", lesVehicules);
-            //System.out.println("lister eleves - nombres d'élèves récupérés" + lesEleves.size() );
-           getServletContext().getRequestDispatcher("/vues/vehicule/listerVehicule.jsp").forward(request, response);
-        }
-   
-        
-         // Récup et affichage des clients interessés par une certaine catégorie de ventes
-/*        if(url.equals("/sdisweb/ServletPompier/consulter"))
-        {  
-            // tout paramètre récupéré de la request Http est de type String
-            // Il est donc nécessaire de caster le paramètre idPompier en int
-            int idPompier = Integer.parseInt((String)request.getParameter("idPompier"));
-            System.out.println( "pompier à afficher = " + idPompier);
-            Pompier p= DaoPompier.getPompierById(cnx, idVehicule);
-            request.setAttribute("", v);
-            getServletContext().getRequestDispatcher("/vues/vehicule/consulterVehicule.jsp").forward(request, response);  
-        }*/
+        processRequest(request, response);
     }
 
     /**
