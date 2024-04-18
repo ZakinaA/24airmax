@@ -4,6 +4,7 @@
     <listener>
         <listener-class>database.InitConnexion</listener-class>
     </listener>
+    
     <servlet>
         <servlet-name>ServletPompier</servlet-name>
         <servlet-class>servlet.ServletPompier</servlet-class>
