@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import model.Caserne;
+import model.Fonction;
 import model.Pompier;
 import model.Grade;
 
@@ -65,25 +66,34 @@ public class DaoPompier {
         
         Pompier p = null ;
         try{
-            requeteSql = cnx.prepareStatement("select pom_id, pom_nom, pom_prenom, pom_caserne_id, pom_grade_id, cas_id, cas_nom, gra_id, gra_libelle " +
+            requeteSql = cnx.prepareStatement("select pom_id, pom_bip, pom_nom, pom_prenom, pom_caserne_id, pom_grade_id, cas_id, cas_nom, gra_id, gra_libelle, fon_id, fon_libelle " +
                          "from pompier " +
                          "inner join caserne on pom_caserne_id = cas_id " +
                          "inner join grade ON pom_grade_id = gra_id " + 
+                         "inner join fonction ON pom_fonction_id = fon_id " + 
                          "where pom_id= ? ");
             requeteSql.setInt(1, idPompier);
             resultatRequete = requeteSql.executeQuery();
             
             if (resultatRequete.next()){
-                
                     p = new Pompier();
                     p.setId(resultatRequete.getInt("pom_id"));
+                    p.setBip(resultatRequete.getInt("pom_bip"));
                     p.setNom(resultatRequete.getString("pom_nom"));
                     p.setPrenom(resultatRequete.getString("pom_prenom"));
                 Caserne c = new Caserne();
                     c.setId(resultatRequete.getInt("cas_id"));
                     c.setNom(resultatRequete.getString("cas_nom"));
+                Grade g = new Grade();
+                    g.setId(resultatRequete.getInt("gra_id"));
+                    g.setLibelle(resultatRequete.getString("gra_libelle"));                            
+                Fonction f = new Fonction();
+                    f.setId(resultatRequete.getInt("fon_id"));
+                    f.setLibelle(resultatRequete.getString("fon_libelle"));
                 
                 p.setUneCaserne(c);
+                p.setUneFonction(f);
+                p.setUnGrade(g);
                 
         
             }
