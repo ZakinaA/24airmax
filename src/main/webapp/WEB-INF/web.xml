@@ -4,7 +4,6 @@
     <listener>
         <listener-class>database.InitConnexion</listener-class>
     </listener>
-    
     <servlet>
         <servlet-name>ServletPompier</servlet-name>
         <servlet-class>servlet.ServletPompier</servlet-class>
@@ -46,6 +45,7 @@
         <servlet-name>ServletFonction</servlet-name>
         <url-pattern>/ServletFonction/consulter</url-pattern>
      </servlet-mapping>
+     <servlet-mapping>
         <servlet-name>ServletVehicule</servlet-name>
         <url-pattern>/ServletVehicule/lister</url-pattern>
     </servlet-mapping>

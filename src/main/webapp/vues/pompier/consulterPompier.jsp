@@ -7,6 +7,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="model.Pompier"%>
 <%@page import="model.Caserne"%>
+<%@page import="model.Vehicule"%>
+<%@page import="model.Grade"%>
 
 <!DOCTYPE html>
 <html>
@@ -18,16 +20,22 @@
         <%
             Pompier p = (Pompier)request.getAttribute("pPompier");
         %>
-        <h1>Bienvenue <%  out.println(p.getPrenom());%>  <%  out.println(p.getNom());%></h1>
+        <h1><%  out.println(p.getPrenom());%>  <%out.println(p.getNom());%></h1>
         <table>
             <tr>
-                <td>Numero Bip : </td><td><%  out.println(p.getBip().get);%></td>
+                <td>Numero Bip : </td><td><%out.println(p.getBip());%></td>
             </tr>
             <tr>
-                <td>Caserne : </td><td><%  out.println(p.getUneCaserne().getNom());%></td>
+                <td>Caserne : </td><td><%out.println(p.getUneCaserne().getNom());%></td>
             </tr>
             <tr>
-                <td>Fonction : </td><td><%  out.println(p.getUneFonction().getLibelle());%></td>
+                <td>Grade : </td><td><%out.println(p.getUnGrade().getLibelle());%></td>
+            </tr>
+            <tr>
+                <td>Fonction : </td><td><%out.println(p.getUneFonction().getLibelle());%></td>
+            </tr>
+            <tr>
+                <td>Date de naissance : </td><td><%out.println(p.getDateNaissance());%></td>
             </tr>
         </table>
     </body>
