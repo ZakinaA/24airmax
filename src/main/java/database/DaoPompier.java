@@ -5,6 +5,7 @@
 package database;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -66,7 +67,7 @@ public class DaoPompier {
         
         Pompier p = null ;
         try{
-            requeteSql = cnx.prepareStatement("select pom_id, pom_bip, pom_nom, pom_prenom, pom_caserne_id, pom_grade_id, cas_id, cas_nom, gra_id, gra_libelle, fon_id, fon_libelle " +
+            requeteSql = cnx.prepareStatement("select pom_id, pom_bip, pom_nom, pom_prenom, pom_caserne_id, pom_grade_id, pom_datenaiss, cas_id, cas_nom, gra_id, gra_libelle, fon_id, fon_libelle " +
                          "from pompier " +
                          "inner join caserne on pom_caserne_id = cas_id " +
                          "inner join grade ON pom_grade_id = gra_id " + 
@@ -81,6 +82,8 @@ public class DaoPompier {
                     p.setBip(resultatRequete.getInt("pom_bip"));
                     p.setNom(resultatRequete.getString("pom_nom"));
                     p.setPrenom(resultatRequete.getString("pom_prenom"));
+                    Date dateDateNaissance = resultatRequete.getDate("pom_datenaiss");
+                    p.setDateNaissance(dateDateNaissance.toLocalDate());
                 Caserne c = new Caserne();
                     c.setId(resultatRequete.getInt("cas_id"));
                     c.setNom(resultatRequete.getString("cas_nom"));
