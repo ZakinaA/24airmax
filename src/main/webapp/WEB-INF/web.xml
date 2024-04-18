@@ -46,7 +46,7 @@
         <servlet-name>ServletFonction</servlet-name>
         <url-pattern>/ServletFonction/consulter</url-pattern>
      </servlet-mapping>
-    <servlet-mapping>
+     <servlet-mapping>
         <servlet-name>ServletVehicule</servlet-name>
         <url-pattern>/ServletVehicule/lister</url-pattern>
     </servlet-mapping>

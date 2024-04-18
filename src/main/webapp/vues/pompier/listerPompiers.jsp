@@ -9,8 +9,6 @@
 <%@page import="model.Caserne"%>
 <%@page import="model.Vehicule"%>
 <%@page import="model.Grade"%>
-
-
 <%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
@@ -33,9 +31,7 @@
                 <tr>             
                     <th>id</th>
                     <th>nom</th>
-                    <th>prenom</th>
-                    <th>caserne</th>       
-                    <th>grade</th>                
+                    <th>prenom</th>               
 
                 </tr>
             </thead>
@@ -56,13 +52,6 @@
                             out.println(p.getPrenom());
                             out.println("</td>");
                            
-                            out.println("<td>");
-                            out.println(p.getUneCaserne().getNom());
-                            out.println("</td>");          
-                                                       
-                            out.println("<td>");
-                            out.println(p.getUnGrade().getLibelle());
-                            out.println("</td>");
 
                         }
                     %>
